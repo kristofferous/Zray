@@ -1,0 +1,4 @@
+main: com.vorlus.zray.Zray
+name: Zray
+author: Kristoffer
+version: ${project.version}
