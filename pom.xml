@@ -12,9 +12,9 @@
   </scm>
     <distributionManagement>
         <repository>
-            <id>github</id>
-            <name>GitHub GraphHopper Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/graphhopper/graphhopper</url>
+            <id>Zray</id>
+            <name>Zray</name>
+            <url>https://github.com/kristofferous/Zray.gitr</url>
         </repository>
     </distributionManagement>
 
