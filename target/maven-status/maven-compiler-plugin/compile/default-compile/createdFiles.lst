@@ -1,5 +1,7 @@
 com\vorlus\zray\Util\MethodCenter.class
-com\vorlus\zray\Listeners\PlayerListener.class
+com\vorlus\zray\Listeners\Player\PlayerTarget.class
+com\vorlus\zray\Listeners\Commands\ZrayCommand.class
 com\vorlus\zray\Util\Files\FileBasics$FILETYPE.class
+com\vorlus\zray\Zray$1.class
 com\vorlus\zray\Zray.class
 com\vorlus\zray\Util\Files\FileBasics.class
