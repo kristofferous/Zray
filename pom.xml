@@ -6,8 +6,8 @@
     <artifactId>Zray</artifactId>
     <version>1.0-SNAPSHOT</version>
     <scm>
-        <connection>scm:git@github.com:kristofferous/Zray.git</connection>
-        <developerConnection>scm:git@github.com:kristofferous/Zray.git</developerConnection>
+        <connection>scm:git:git@github.com:kristofferous/Zray.git</connection>
+        <developerConnection>scm:git:git@github.com:kristofferous/Zray.git</developerConnection>
         <url>git@github.com:kristofferous/Zray.git</url>
   </scm>
     <distributionManagement>
@@ -33,7 +33,7 @@
                     <version>2.5.3</version>
                     <configuration>
                         <localCheckout>true</localCheckout>
-                        <pushChanges>false</pushChanges>
+                        <pushChanges>true</pushChanges>
                     </configuration>
                 </plugin>
                 <plugin>
