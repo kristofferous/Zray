@@ -2,3 +2,8 @@ main: com.vorlus.zray.Zray
 name: Zray
 author: Kristoffer
 version: ${project.version}
+api-version: 1.17
+
+commands:
+  zray:
+    description: Main cmd

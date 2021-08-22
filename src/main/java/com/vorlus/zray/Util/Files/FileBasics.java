@@ -2,6 +2,7 @@ package com.vorlus.zray.Util.Files;
 
 import com.vorlus.zray.Zray;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -22,13 +23,12 @@ public class FileBasics {
             types.add(type);
         }
     }
-
     public enum FILETYPE {
-        CONFIG("config");
+        CONFIG( "config");
 
-        private final String fileName;
-        private final YamlConfiguration config = new YamlConfiguration();
         private final File file;
+        private final YamlConfiguration fileConfiguration = new YamlConfiguration();
+        private final String fileName;
 
         FILETYPE(String str) {
             this.fileName = str + ".yml";
@@ -37,43 +37,40 @@ public class FileBasics {
 
         //PUBLIC
         public String getString(String path) {
-            if (config.isString(path))
-                return config.getString(path);
-            return "SOMETHING WENT WRONG";
+            return fileConfiguration.getString(path);
         }
-
         public boolean getBoolean(String path) {
-            return config.getBoolean(path);
+            return fileConfiguration.getBoolean(path);
         }
 
         public int getInt(String path) {
-            return config.getInt(path);
+            return fileConfiguration.getInt(path);
         }
 
         public List<String> getStringList(String path) {
-            if (config.isList(path))
-                return config.getStringList(path);
+            if (fileConfiguration.isList(path))
+                return fileConfiguration.getStringList(path);
             return new ArrayList<>();
         }
 
         public ConfigurationSection getConfigurationSection(String path) {
-            return config.getConfigurationSection(path);
+            return fileConfiguration.getConfigurationSection(path);
         }
 
         public boolean isString(String path) {
-            return config.isString(path);
+            return fileConfiguration.isString(path);
         }
 
         public boolean isList(String path) {
-            return config.isList(path);
+            return fileConfiguration.isList(path);
         }
 
         public List<Map<?, ?>> getMapList(String path) {
-            return config.getMapList(path);
+            return fileConfiguration.getMapList(path);
         }
 
-        public YamlConfiguration getConfig() {
-            return config;
+        public File getConfig() {
+            return file;
         }
 
         public File getFile() {
@@ -81,7 +78,7 @@ public class FileBasics {
         }
 
         public void setValue(String path, Object value) {
-            config.set(path, value);
+            fileConfiguration.set(path, value);
         }
 
         //PROCCESSING
@@ -89,20 +86,20 @@ public class FileBasics {
             if (!file.exists()) {
                 Zray.getInstance().saveResource(fileName, false);
                 try {
-                    config.load(file);
+                    fileConfiguration.load(file);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    config.load(file);
+                    fileConfiguration.load(file);
                     final InputStream in = Zray.getInstance().getResource(fileName);
                     if (in != null) {
-                        config.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(in)));
-                        config.options().copyDefaults(true);
+                        fileConfiguration.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(in)));
+                        fileConfiguration.options().copyDefaults(true);
                         in.close();
                     }
-                    config.save(file);
+                    fileConfiguration.save(file);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
