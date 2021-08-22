@@ -6,7 +6,7 @@
     <artifactId>Zray</artifactId>
     <version>1.0-SNAPSHOT</version>
     <scm>
-        <connection>scm:git:https://github.com/kristofferous/Zray.git</connection>
+        <connection>scm:git:https://github.com/kristofferous/Zray</connection>
         <developerConnection>scm:git:https://github.com/kristofferous/Zray.git</developerConnection>
         <url>https://github.com/kristofferous/Zray.git</url>
   </scm>
