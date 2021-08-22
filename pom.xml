@@ -43,6 +43,7 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
             <version>1.17.1-R0.1-SNAPSHOT</version>
+            <systemPath>${basedir}/spigot.jar</systemPath>
             <scope>provided</scope>
         </dependency>
     </dependencies>
