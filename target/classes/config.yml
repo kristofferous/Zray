@@ -5,3 +5,6 @@ target:
   mob-target-radius: 42
   ## Y difference from player
   mob-target-height: 5
+
+  ## In ms, (lower = worse performance)
+  mob-target-delay: 2000

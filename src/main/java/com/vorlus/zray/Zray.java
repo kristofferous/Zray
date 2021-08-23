@@ -15,12 +15,12 @@ import java.util.logging.Level;
 
 public class Zray extends JavaPlugin implements Listener {
 
+    private static Zray instance;
+
     private static final MethodCenter methodCenter = new MethodCenter();
     private static final PlayerTarget playerTarget = new PlayerTarget();
     private static final FileBasics fileBasics = new FileBasics();
     private static final ZrayCommand zrayCommand = new ZrayCommand();
-
-    private static Zray instance;
 
     Timer timer = new Timer();
 
@@ -35,8 +35,8 @@ public class Zray extends JavaPlugin implements Listener {
     }
 
     public void loadAll() {
-        Objects.requireNonNull(instance.getCommand("zray")).setExecutor(zrayCommand);
-        Objects.requireNonNull(instance.getCommand("zray")).setTabCompleter(zrayCommand);
+        Objects.requireNonNull(getInstance().getCommand("zray")).setExecutor(zrayCommand);
+        Objects.requireNonNull(getInstance().getCommand("zray")).setTabCompleter(zrayCommand);
 
         fileBasics.load();
 
@@ -47,6 +47,6 @@ public class Zray extends JavaPlugin implements Listener {
             }
         }, 0, FileBasics.FILETYPE.CONFIG.getInt("mob-target-delay"));
 
-        instance.getLogger().log(Level.INFO, methodCenter.c("&7&l[&b&lZray&7] &fPlugin enabled!"));
+        getInstance().getLogger().log(Level.INFO, methodCenter.c("&7&l[&b&lZray&7] &fPlugin enabled!"));
     }
 }
